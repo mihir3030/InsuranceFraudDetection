@@ -1,0 +1,23 @@
+artifact_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  store_dir_name: feature_store
+  ingested_dir: ingested
+  split_ratio: 0.3
+  file_name: Insurance.csv
+  training_file_name: train.csv
+  testing_file_name: test.csv
+
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing
+  local_file_name: data_preprocess.csv
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  local_model_name: model.pkl
+
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  local_file_name: report.json

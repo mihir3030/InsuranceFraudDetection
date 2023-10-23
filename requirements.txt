@@ -1,0 +1,28 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+pyYaml
+joblib
+requests
+imblearn
+jupyterlab
+flask
+python-dotenv
+pymongo==4.2.0
+scipy
+dill
+xgboost
+ensure==1.0.2
+python-box==6.0.2
+dataclasses
+# pymongo[srv]==4.2.0 # for connecting to mongo atlas server
+
+
+# mlflow
+# dvc
+# dvc-s3
+
+
+-e .
