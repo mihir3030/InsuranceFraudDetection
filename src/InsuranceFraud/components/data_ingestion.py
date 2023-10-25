@@ -14,6 +14,7 @@ class DataIngestion:
         Export data from cloud as DataFrame into Feature store
         """
         self.datframe = pd.read_csv("research/insuranceFraud.csv")
+        logging.info(f"dataset exported from ... to local successfully")
 
         data_ingestion_root_dir = self.data_ingestion_config.root_dir
         feature_store_dir = self.data_ingestion_config.store_dir_name
@@ -24,6 +25,7 @@ class DataIngestion:
         feature_store_file_path = os.path.join(feature_store_path, feature_store_file,)
         print(feature_store_file_path)
         self.datframe.to_csv(feature_store_file_path, index=False)
+        logging.info(f"data save at {feature_store_file_path}")
         
 
     def split_data_as_train_test_split(self) -> None:
@@ -39,9 +41,12 @@ class DataIngestion:
 
         train_set_path = os.path.join(ingested_dir_path, self.data_ingestion_config.training_file_name)
         train_set.to_csv(train_set_path,  index=False)
+        logging.info(f"train data save at {train_set_path}")
         
         test_set_path = os.path.join(ingested_dir_path, self.data_ingestion_config.testing_file_name)
         test_set.to_csv(test_set_path, index=False)
+        logging.info(f"test data save at {test_set_path}")
+
 
     def initiate_data_ingestion(self):
         pass

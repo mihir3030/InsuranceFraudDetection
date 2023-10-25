@@ -14,13 +14,16 @@ class ModelEvaluation:
     def read_data(self) -> pd.DataFrame:
         data_path = self.model_evaluation_config.load_data_file
         dataframe = pd.read_csv(data_path)
+        logging.info(f"read data from {data_path}")
         self.x = dataframe.drop(['fraud_reported'], axis=1)
         self.y = dataframe['fraud_reported']
 
     def model_metrics(self):
         model = joblib.load(self.model_evaluation_config.load_model_file)
+        logging.info(f"trained model loaded from {self.model_evaluation_config.load_model_file}")
         y_pred = model.predict(self.x)
         self.f1_score = f1_score(self.y, y_pred)
+        logging.info(f"model f1_score: {self.f1_score}")
 
     def save_report(self):
         scores = {
@@ -32,3 +35,4 @@ class ModelEvaluation:
         report_file_path = os.path.join(root_dir, report_file)
 
         save_report(scores, report_file_path)
+        logging.info(f"f1_score report save at {report_file_path}")
